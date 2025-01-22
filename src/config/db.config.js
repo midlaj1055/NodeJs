@@ -2,12 +2,8 @@ const mysql = require('mysql2');
 require('dotenv').config(); // This line loads environment variables from the .env file
 
 const db = mysql.createConnection({
-  uri: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
-  host: process.env.DB_HOST, // Use environment variables
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  uri: process.env.MYSQL_URL, // Use MYSQL_URL to connect
+  ssl: { rejectUnauthorized: false }, // Enable SSL for secure connections
 });
 
 db.connect((err) => {
